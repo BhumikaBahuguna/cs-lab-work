@@ -1,0 +1,173 @@
+1)To arrange elements of all rows in ascending order 
+
+
+#include <stdio.h>
+void sortRow(int row[], int n) {
+    int i, j, temp;
+    for (i = 0; i < n-1; i++) {
+        for (j = 0; j < n-i-1; j++) {
+            if (row[j] > row[j+1]) {
+                temp = row[j];
+                row[j] = row[j+1];
+                row[j+1] = temp;
+            }
+        }
+    }
+}
+void arrangeRowsAscending(int arr[][100], int m, int n) {
+    for (int i = 0; i < m; i++) {
+        sortRow(arr[i], n);
+    }
+}
+void printArray(int arr[][100], int m, int n) {
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    int m, n;
+    printf("Enter the number of rows and columns (m x n): ");
+    scanf("%d %d", &m, &n);
+
+    int arr[100][100];
+
+    printf("Enter the elements of the array:\n");
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            scanf("%d", &arr[i][j]);
+        }
+    }
+
+    arrangeRowsAscending(arr, m, n);
+
+    printf("\nArray with rows arranged in ascending order:\n");
+    printArray(arr, m, n);
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+2) To arrange elements of all columns in ascending order
+
+
+#include <stdio.h>
+void sortColumn(int arr[][100], int m, int col) {
+    int i, j, temp;
+    for (i = 0; i < m-1; i++) {
+        for (j = 0; j < m-i-1; j++) {
+            if (arr[j][col] > arr[j+1][col]) {
+                temp = arr[j][col];
+                arr[j][col] = arr[j+1][col];
+                arr[j+1][col] = temp;
+            }
+        }
+    }
+}
+void arrangeColumnsAscending(int arr[][100], int m, int n) {
+    for (int j = 0; j < n; j++) {
+        sortColumn(arr, m, j);
+    }
+}
+void printArray(int arr[][100], int m, int n) {
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    int m, n;
+    printf("Enter the number of rows and columns (m x n): ");
+    scanf("%d %d", &m, &n);
+
+    int arr[100][100];
+
+    printf("Enter the elements of the array:\n");
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            scanf("%d", &arr[i][j]);
+        }
+    }
+
+    arrangeColumnsAscending(arr, m, n);
+
+    printf("\nArray with columns arranged in ascending order:\n");
+    printArray(arr, m, n);
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+3)  To perform following operation : R3=2R2-R1=5R3
+
+
+
+
+#include <stdio.h>
+void performOperation(int arr[][100], int m, int n) {
+    if (m < 3 || n < 1) {
+        printf("Array size too small to perform the operation.\n");
+        return;
+    }
+
+    for (int j = 0; j < n; j++) {
+        arr[2][j] = 2 * arr[1][j] - arr[0][j] + 5 * arr[2][j];
+    }
+}
+void printArray(int arr[][100], int m, int n) {
+    printf("Resultant array after operation:\n");
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    int m, n;
+    printf("Enter the number of rows and columns (m x n): ");
+    scanf("%d %d", &m, &n);
+
+    int arr[100][100];
+
+    printf("Enter the elements of the array:\n");
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            scanf("%d", &arr[i][j]);
+        }
+    }
+
+    performOperation(arr, m, n);
+
+    printArray(arr, m, n);
+
+    return 0;
+}
+
+
+
+
+
+
