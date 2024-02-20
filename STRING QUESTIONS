@@ -22,7 +22,7 @@ int main()
 
 
 
-NOTE: (The ctype header file in C defines various functions to classify and transform characters.)
+NOTE: (The <ctype> header file in C defines various functions to classify and transform characters.)
 
 
 
