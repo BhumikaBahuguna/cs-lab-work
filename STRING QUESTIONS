@@ -1,6 +1,8 @@
 1) TO CONVERT A STRING FROM LOWER CASE TO UPPER CASE.
 
 
+
+
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
@@ -29,7 +31,11 @@ NOTE: (The ctype header file in C defines various functions to classify and tran
 
 
 
+
+
 2) TO COUNT NUMBER OF WORDS IN A STRING.
+
+
 
 
 #include<stdio.h>
@@ -58,7 +64,14 @@ return 0;
 
 
 
+
+
+
+
 3) TO INPUT A STRING AND REMOVE EXTRA WIDE SPACES.
+
+
+
 
 #include <stdio.h>
 #include <string.h>
@@ -86,6 +99,8 @@ int main()
 
 
 
+
+
 4) TO INPUT A STRING CONTAINING MULTIPLE LINES BUT A SINGLE WORD.
 
 
@@ -104,7 +119,10 @@ int main() {
 
 
 
+
+
 5)  TO INPUT A STRING CONTAINING MULTIPLE WORDS USINF SCANF AND COUNT THE NUMBER OF WORDS.
+
 
 
 
@@ -131,4 +149,164 @@ int main() {
 
 
 
+
+
+6)  TO INPUT A STRING CONTAINING ENGLISH SENTENCE AND CONVERT IT INTO PIGLATIN FORM.
+
+
+
+
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+int isVowel(char c) {
+    c = tolower(c);
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+}
+void convertToPigLatin(char str[]) {
+    char pigLatin[1000];
+    char word[100];
+    int i, j, k;
+    int wordStart = -1;
+    int length = strlen(str);
+  for (i = 0, j = 0; i <= length; i++) {
+        if (isalpha(str[i])) {
+            if (wordStart == -1) {
+                wordStart = i;
+            }
+        } else {
+            if (wordStart != -1) {
+            for (k = 0; k < i - wordStart; k++) {
+                    word[k] = tolower(str[wordStart + k]);
+                }
+                word[k] = '\0';
+                if (isVowel(word[0])) {
+                    strcat(word, "way");
+                } else {
+                    char first = word[0];
+                    for (int l = 0; l < strlen(word) - 1; l++) {
+                        word[l] = word[l + 1];
+                    }
+                    word[strlen(word) - 1] = first;
+                    strcat(word, "ay");
+                }
+                    if (j != 0) {
+                    strcat(pigLatin, " ");
+                }
+                strcat
+                (pigLatin, word);
+               wordStart = -1;
+            j += strlen(word);
+        }
+    }
+}
+printf("Pig Latin form: %s\n", pigLatin);
+}
+int main() {
+char str[1000];
+printf("Enter a sentence: ");
+fgets(str, sizeof(str), stdin);
+if (str[strlen(str) - 1] == '\n')
+    str[strlen(str) - 1] = '\0';
+convertToPigLatin(str);
+return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+7) TO INPUT A STRING CONTAINING ALPHABET AND FIND FREQUENCY OF EACH LETTER AND PRINT LETTERS IN INCREASING ORDER OF THEIR FREQUENCIES.
+
+
+
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#define MAX_SIZE 100
+void countFrequency(char str[], int freq[]) {
+    int i = 0;
+    while (str[i] != '\0') {
+        if (isalpha(str[i])) {
+            int index = tolower(str[i]) - 'a';
+            freq[index]++;
+        }
+        i++;
+    }
+}
+void printFrequencies(int freq[]) {
+    printf("Letters sorted by their frequencies:\n");
+    for (int i = 0; i < 26; i++) {
+        int maxFreq = -1;
+        int maxIndex = -1;
+        for (int j = 0; j < 26; j++) {
+            if (freq[j] > maxFreq) {
+                maxFreq = freq[j];
+                maxIndex = j;
+            }
+        }
+        if (maxFreq > 0) {
+            printf("%c : %d\n", 'a' + maxIndex, maxFreq);
+            freq[maxIndex] = 0;
+        }
+    }
+}
+int main() {
+    char str[MAX_SIZE];
+    int freq[26] = {0};
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+    countFrequency(str, freq);
+    printFrequencies(freq);
+    return 0;
+}
+
+
+
+
+
+
+
+
+8) TO INPUT A STRING 'A' AND A STRING 'B' WHERE LENGTH OF STRING 'B' IS LESS THAN LENGTH OF STRING 'A' , CHECK WETHER 'B' IS SUB STRING OF 'A'.
+
+
+
+#include <stdio.h>
+#include <string.h>
+int isSubstring(char a[], char b[]) {
+    int len_a = strlen(a);
+    int len_b = strlen(b);
+   for (int i = 0; i <= len_a - len_b; i++) {
+        int j;
+        for (j = 0; j < len_b; j++) {
+            if (a[i + j] != b[j])
+                break;
+        }
+        if (j == len_b)
+            return 1; // substring found
+    }
+}
+int main() {
+    char a[100], b[100];
+    printf("Enter string a: ");
+    fgets(a, sizeof(a), stdin);
+    printf("Enter string b: ");
+    fgets(b, sizeof(b), stdin);
+    if (a[strlen(a) - 1] == '\n')
+        a[strlen(a) - 1] = '\0';
+    if (b[strlen(b) - 1] == '\n')
+        b[strlen(b) - 1] = '\0';
+    if (isSubstring(a, b))
+        printf("'%s' is a substring of '%s'\n", b, a);
+    else
+        printf("'%s' is not a substring of '%s'\n", b, a);
+    return 0;
+}
 
