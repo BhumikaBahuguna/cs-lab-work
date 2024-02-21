@@ -193,9 +193,8 @@ void convertToPigLatin(char str[]) {
                     if (j != 0) {
                     strcat(pigLatin, " ");
                 }
-                strcat
-                (pigLatin, word);
-               wordStart = -1;
+                strcat(pigLatin, word);
+                wordStart = -1;
             j += strlen(word);
         }
     }
