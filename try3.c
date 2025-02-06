@@ -1,3 +1,4 @@
+//buffer clear
 #include<stdio.h>
 int main(){
 char ch,ch1;
