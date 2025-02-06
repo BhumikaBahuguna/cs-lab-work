@@ -1,0 +1,9 @@
+#include<stdio.h>
+int main(){
+char ch;
+int a,b;
+scanf("%c",&ch);
+scanf("%d",&a);
+scanf("%d",&b);
+return 0;
+}
