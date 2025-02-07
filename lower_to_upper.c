@@ -37,30 +37,6 @@ NOTE: (The <ctype> header file in C defines various functions to classify and tr
 
 
 
-2) TO COUNT NUMBER OF WORDS IN A STRING.
-
-
-
-#include<stdio.h>
-int main(){
-    char str[50];
-    int i,c;
-    printf("enter a string ");
-    fgets(str,50,stdin);
-    if(str[0]=' ')
-    c=0;
-    else
-    c=1;
-    for(i=0;str[i]!='\0';i++)
-    {
-        if(str[i]==' ' &&str[i+1]!=' ')
-        {
-            c=c+1;
-        }
-    }
- printf("%d",c);
- return 0;
-}
 
 
 
