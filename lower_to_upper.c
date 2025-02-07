@@ -25,38 +25,6 @@ int main()
 NOTE: (The <ctype> header file in C defines various functions to classify and transform characters.)
 
 
-
-
-5)  TO INPUT A STRING CONTAINING MULTIPLE WORDS USINF SCANF AND COUNT THE NUMBER OF WORDS.
-
-
-
-
-#include <stdio.h>
-#include <string.h>
-int main() {
-    char string[1000];
-    int count = 0;
-    printf("Enter a string containing multiple words: \n");
-    scanf("%[^\n]", string); 
-    for (int i = 0; i < strlen(string); i++) {
-        if (string[i] == ' ') {
-            count++;
-        }
-    }
-    count++;
-    printf("Number of words in the string: %d\n", count);
-    return 0;
-}
-
-
-
-
-
-
-
-
-
 6)  TO INPUT A STRING CONTAINING ENGLISH SENTENCE AND CONVERT IT INTO PIGLATIN FORM.
 
 
