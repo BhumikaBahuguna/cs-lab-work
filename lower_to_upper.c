@@ -46,32 +46,6 @@ NOTE: (The <ctype> header file in C defines various functions to classify and tr
 
 
 
-3) TO INPUT A STRING AND REMOVE EXTRA WIDE SPACES.
-
-
-
-
-#include <stdio.h>
-#include <string.h>
-int main()
-{
-    char string[1000];
-    char result[1000];
-    int i, j;
-    printf("Enter a string: ");
-    fgets(string, sizeof(string), stdin);
-    for (i = 0, j = 0; i < strlen(string); i++) {
-        if (!(string[i] == ' ' && string[i+1] == ' ')) {
-            result[j++] = string[i];
-        }
-    }
-    result[j] = '\0'; // Null-terminate the result string
-    printf("String after removing extra wide spaces: %s\n", result);
-    return 0;
-}
-
-
-
 
 
 
