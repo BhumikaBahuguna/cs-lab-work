@@ -27,52 +27,6 @@ NOTE: (The <ctype> header file in C defines various functions to classify and tr
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-4) TO INPUT A STRING CONTAINING MULTIPLE LINES BUT A SINGLE WORD.
-
-
-#include <stdio.h>
-int main() {
-    char string[1000]; 
-    printf("Enter a string containing multiple lines but a single word:\n");
-    fgets(string, sizeof(string), stdin);
-    printf("The word you entered is: %s", string);
-    return 0;
-}
-
-
-
-
-
-
-
-
-
 5)  TO INPUT A STRING CONTAINING MULTIPLE WORDS USINF SCANF AND COUNT THE NUMBER OF WORDS.
 
 
