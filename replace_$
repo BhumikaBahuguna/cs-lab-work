@@ -1,0 +1,19 @@
+12)REPLACE A CHARACTER BY $
+
+
+
+#include<stdio.h>
+int main(){
+    char str[50],i,x;
+    printf("input string:\n");
+    fgets(str,50,stdin);
+    printf("input character to replace:\n");
+    scanf("%c",&x);
+    for(i=0;str[i]!='\0';i++)
+    {
+    if(str[i]==x) 
+    str[i]='$';
+    }
+    printf("%s",str);
+    return 0;
+}
