@@ -1,0 +1,37 @@
+10) NUMBER OF TIMES A SUBSTRING APPEARS IN A STRING 
+
+
+
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char S[100]; 
+    char sub[100];
+    int count = 0;
+    int stringLen, subLen;
+    printf("Enter the main string: ");
+    fgets(S, sizeof(S), stdin);
+    printf("Enter the substring: ");
+    fgets(sub, sizeof(sub), stdin);
+    stringLen = strlen(S)-1;
+    subLen = strlen(sub)-1;
+    for(int i = 0; i <= stringLen - subLen; i++) {
+        int found = 1;
+        for(int j = 0; j < subLen; j++) {
+            if(S[i + j] != sub[j]) {
+                found = 0;
+                break;
+            }
+        }
+        if(found) {
+            count++;
+        }
+    }
+
+    printf("The substring '%s' appears %d times in the string '%s'.\n", sub, count, S);
+
+    return 0;
+}
+
